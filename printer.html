@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript" src="./websocket_printer.js"></script>
+	<title></title>
+</head>
+<body>
+	<button id='connect'>连接打印机</button>
+	<button id='getData'>获取数据</button>
+	<button id='print'>打印</button>
+</body>
+</html>
+
+<script>
+$(function () {
+	var printData;
+	$('#connect').click(function(event) {
+		doConnect(getPrinter);
+	});
+	$('#getData').click(function(event) {
+		$.get('/getdata.php', function(data) {
+			console.log(data);
+			printData = data;
+		},'json');
+	});
+	$("#print").click(function(event) {
+		var printer = 'Foxit Reader PDF Printer';
+		var waybillArray = new Array();
+		waybillArray[0] = '889190729431347149';
+		doPrint(printer, waybillArray);
+	});
+});
+</script>

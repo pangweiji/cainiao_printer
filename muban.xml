@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page
+        xmlns="http://cloudprint.cainiao.com/print"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://cloudprint.cainiao.com/print http://cloudprint-docs-resource.oss-cn-shanghai.aliyuncs.com/lpml_schema.xsd"
+        xmlns:editor="http://cloudprint.cainiao.com/schema/editor"
+        width="100" height="180"  >
+		<layout 
+            
+            
+            id="element_layout_C2703061CD5215F7" width="100" height="180"  style="overflow:visible;zIndex:1;"><line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="15.00" 
+                    endX="99"
+                    endY="15"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="30.00" 
+                    endX="99"
+                    endY="30"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="40.00" 
+                    endX="99"
+                    endY="40"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="55.00" 
+                    endX="99"
+                    endY="55"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="67.00" 
+                    endX="99"
+                    endY="67"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="89.00" 
+                    endX="99"
+                    endY="89"
+                    >
+                </line>
+                <line
+                    style="lineType:solid;lineColor:#000;"
+                    startX="20.00" 
+                    startY="89" 
+                    endX="20"
+                    endY="108"
+                    editor:_deg_="90">
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="120" 
+                    endX="99"
+                    endY="120"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="140.00" 
+                    endX="99"
+                    endY="140"
+                    >
+                </line>
+                <line
+                    style="lineType:dotted;lineColor:#000;"
+                    startX="1" 
+                    startY="130.00" 
+                    endX="80"
+                    endY="130"
+                    >
+                </line>
+                <line
+                    style="lineType:solid;lineColor:#000;"
+                    startX="80.00" 
+                    startY="120" 
+                    endX="80"
+                    endY="140"
+                    editor:_deg_="90">
+                </line>
+				<%
+					var userLogisticsSelect = "";
+					var services = ((_data || {}).shippingOption ||{}||{}).services|| {};
+					var userLogisticsSelectVaule = services["SVC-USER-LOGISTICS-SELECT"];
+					if (userLogisticsSelectVaule && userLogisticsSelectVaule["USER_LOGISTICS_SELECT_VALUE"]) {
+						if (userLogisticsSelectVaule["USER_LOGISTICS_SELECT_VALUE"] == "CE10001") {
+							userLogisticsSelect = "【务必送货上门】";
+						} else if (userLogisticsSelectVaule["USER_LOGISTICS_SELECT_VALUE"] == "CE10002") {
+							userLogisticsSelect = "【务必电话联系】";
+						}
+					}
+					
+				%>
+                <layout 
+            editor:_for_="element_text_D0362864BFED5BCB"
+            
+            id="element_layout_A2D8F71EC01AAA8C" width="88.5" height="14.5" left="10.5" top="40.35"  style="overflow:visible;zIndex:42;">
+            <text editor:_printName_="收件人姓名          座机         手机                 -收件人地址" 
+                style="fontFamily:simhei;fontWeight:bold;fontSize:auto;">
+                <![CDATA[<%=_data.recipient.name%>   <%=_data.recipient.phone%>   <%=_data.recipient.mobile%>
+<%=_data.recipient.address.province%><%=_data.recipient.address.city %><%=_data.recipient.address.district%><%=_data.recipient.address.town%><%=_data.recipient.address.detail%><%=userLogisticsSelect%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_39EAD4AA7158C60E"
+            
+            id="element_layout_2F4B3DAFC5CD6CDA" width="87.5" height="4.15" left="10.5" top="55.35"  style="overflow:visible;zIndex:43;">
+            <text editor:_printName_="寄件人姓名          座机         手机" 
+                style="fontFamily:simhei;">
+                <![CDATA[<%=_data.sender.name%>   <%=_data.sender.phone%>   <%=_data.sender.mobile%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_0C29FB167353E125"
+            
+            id="element_layout_BDDA5CD4BF325616" width="68" height="4" left="11" top="120.35"  style="overflow:visible;zIndex:45;"><% 
+          var isPrivacy = true;
+          var recipientMobile = ((_data ||{}).recipient || {}).mobile || "";
+          var recipientPhone = ((_data ||{}).recipient || {}).phone || "";
+          if (isPrivacy) {
+            if (recipientMobile.length >= 11) {
+                recipientMobile = recipientMobile.slice(0,recipientMobile.length - 8) + "****" + recipientMobile.slice(-4);
+            }  
+            if (recipientPhone.length >= 8) {
+                recipientPhone = recipientPhone.slice(0,recipientPhone.length - 8) + "****" + recipientPhone.slice(-4);
+            } 
+          }
+          
+          %>
+
+            <text editor:_printName_="收件人姓名        座机        手机" 
+                style="fontFamily:simhei;fontSize:7;">
+                <![CDATA[<%=_data.recipient.name%>   <%=recipientPhone%>   <%=recipientMobile%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_A12AE8F34C37818E"
+            
+            id="element_layout_61E86C4D84D36270" width="68" height="4" left="11" top="130.35"  style="overflow:visible;zIndex:36;">
+            <text editor:_printName_="寄件人姓名        座机        手机" 
+                style="fontFamily:simhei;fontSize:7;">
+                <![CDATA[<%=_data.sender.name%>   <%=_data.sender.phone%>   <%=_data.sender.mobile%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_5EEB4684D5099746"
+            
+            id="element_layout_BCCEE46036FB5554" width="98" height="13" left="1" top="15.5"  style="overflow:visible;zIndex:28;"><%
+				var sortation_name = (((_data || {}).routingInfo ||{}||{}).sortation||{}||{}).name||"";
+				var route_code = ((_data || {}).routingInfo ||{}||{}).routeCode||"";
+          		var datoubi;
+          		if(route_code == ""){
+                  datoubi=sortation_name;
+                }else{
+                  datoubi=route_code;
+                }
+			%>
+
+            <text  
+                style="fontFamily:simhei;fontWeight:bold;fontSize:auto;align:center;valign:middle;">
+                <![CDATA[<%=datoubi%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_1B9D4C420D20F87A"
+            
+            id="element_layout_8A1394C5E25FAF84" width="50" height="9" left="10.5" top="30.35"  style="overflow:visible;zIndex:29;">
+            <text editor:_printName_="集包地" 
+                style="fontFamily:simhei;fontWeight:bold;fontSize:auto;valign:middle;">
+                <![CDATA[<%=_data.routingInfo.consolidation.name%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_5D213708D1B2017A"
+            
+            id="element_layout_69EECF1EB66409AD" width="87.12" height="7.43" left="10.5" top="59.57"  style="overflow:visible;zIndex:30;">
+            <text editor:_printName_="寄件人地址" 
+                style="fontFamily:simhei;lineHeight:4;">
+                <![CDATA[<%=_data.sender.address.province%><%=_data.sender.address.city %><%=_data.sender.address.district%><%=_data.sender.address.town%><%=_data.sender.address.detail%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_4502C5900F885A80"
+            
+            id="element_layout_F941B52EC5172936" width="12.78" height="3.87" left="1" top="104.3"  style="overflow:visible;zIndex:31;">
+            <text  
+                style="fontFamily:simhei;fontSize:7;align:right;valign:bottom;">
+                <![CDATA[打印时间]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_E9326CD5676BB87A"
+            
+            id="element_layout_572B9AEEE697518D" width="58.53" height="14.95" left="21" top="89.35"  style="overflow:visible;zIndex:22;">
+            <text  
+                style="fontFamily:simhei;fontSize:7;lineHeight:3;valign:middle;">
+                <![CDATA[快件送达收件人地址，经收件人或收件人（寄件人）允许的代收人签字，视为送达。您的签字代表您已经签收此包裹，并已确认商品信息无误、包装完好、没有划痕、破损等表面质量问题。]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_brcode_A48601852409D928"
+            
+            id="element_layout_92B7062628BED605" width="88.11" height="19.93" left="5.79" top="69.07"  style="overflow:visible;zIndex:44;"><barcode type="code128" style="opacity:1;hideText:false;rotation:0" value="<%=_data.waybillCode%>" ratioMode="keepRatio" />
+		</layout><layout 
+            editor:_for_="element_text_B12AA29A2A78E991"
+            
+            id="element_layout_2EB6125289467429" width="18.3" height="4.5" left="1.5" top="93.5"  style="overflow:visible;zIndex:34;">
+            <text editor:_printName_="时间" 
+                style="fontFamily:simhei;fontSize:11;">
+                <![CDATA[<%=_context.formatStartTime('HH:mm:ss')%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_48F9C47B8972EA41"
+            
+            id="element_layout_3ADDAF57FC4C5E3C" width="17" height="6" left="1.5" top="98"  style="overflow:visible;zIndex:35;"><%
+           var docSeq = _context.documentNumber();
+        if (typeof _context.documentCount == "function") {
+          docSeq = docSeq + "/" + _context.documentCount();
+        }
+          %>
+
+            <text editor:_printName_="序号" 
+                style="fontFamily:simhei;fontSize:13;">
+                <![CDATA[<%= docSeq %>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_brcode_7ACBE9FAE6FE7B63"
+            
+            id="element_layout_956645557D3AAE36" width="35" height="8.12" left="63" top="31.35"  style="overflow:visible;zIndex:37;"><barcode type="code128" style="opacity:1;hideText:true;rotation:0" value="<%=_data.routingInfo.consolidation.code%>" ratioMode="keepRatio" />
+		</layout><layout 
+            editor:_for_="element_brcode_CEDB3635C33FF1B2"
+            
+            id="element_layout_168920CEB02D8246" width="67.72" height="10" left="31.2" top="110.2"  style="overflow:visible;zIndex:25;"><barcode type="code128" style="opacity:1;hideText:false;rotation:0" value="<%=_data.waybillCode%>" ratioMode="keepRatio" />
+		</layout><layout 
+            editor:_for_="element_text_AF8FF0813794EB22"
+            
+            id="element_layout_4FA8E0FB8CD621DD" width="67.5" height="5.95" left="11" top="124.05"  style="overflow:visible;zIndex:38;">
+            <text editor:_printName_="地址" 
+                style="fontFamily:simhei;fontSize:7;lineHeight:3;valign:middle;">
+                <![CDATA[<%=_data.recipient.address.province%><%=_data.recipient.address.city %><%=_data.recipient.address.district%><%=_data.recipient.address.town%><%=_data.recipient.address.detail%>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_32C36E7B5323D706"
+            
+            id="element_layout_57D4CB85600BB892" width="67.5" height="5.84" left="11" top="134.16"  style="overflow:visible;zIndex:39;">
+            <text editor:_printName_="地址" 
+                style="fontFamily:simhei;fontSize:7;lineHeight:3;valign:middle;">
+                <![CDATA[<%=_data.sender.address.province%><%=_data.sender.address.city %><%=_data.sender.address.district %><%=_data.sender.address.town %><%=_data.sender.address.detail %>]]>
+            </text>
+        
+		</layout><layout 
+            editor:_for_="element_text_FCA7780A6223DE14"
+            
+            id="element_layout_14EC37FF3DFE16A6" width="9.6" height="3.89" left="63.53" top="104.3"  style="overflow:visible;zIndex:33;">
+            <text  
+                style="fontFamily:simhei;fontSize:7;align:right;valign:bottom;">
+                <![CDATA[签收栏]]>
+            </text>
+        
+		</layout><% if(_config.needTopLogo === true){%>
+<layout 
+            editor:_for_="element_image_756DC119AC15A3AA"
+            
+            id="element_layout_E13728DDC825CA39" width="30" height="14" left="1.2" top="0.5899999999999999"  style="overflow:visible;zIndex:27;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474252117783.jpg"  allowFailure="false" />
+		</layout><%}%>
+<% if(_config.needBottomLogo === true){%>
+<layout 
+            editor:_for_="element_image_4299CD5F8EFB2542"
+            
+            id="element_layout_6D516E89CB68D1AB" width="26" height="8.5" left="1" top="111"  style="overflow:visible;zIndex:26;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474252125181.jpg"  allowFailure="false" />
+		</layout><%}%>
+<layout 
+            editor:_for_="element_image_702A1E7CCD39CCEC"
+            
+            id="element_layout_BCDD735DA98014D5" width="9" height="9" left="1" top="30.5"  style="overflow:visible;zIndex:24;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191217698.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_5DEEBD4D81722C69"
+            
+            id="element_layout_60E64A5F027DD9D3" width="9" height="10" left="1" top="42.57"  style="overflow:visible;zIndex:23;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191080248.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_168D6EAC905903E7"
+            
+            id="element_layout_9B51040B49260B8C" width="7" height="7" left="1" top="57.35"  style="overflow:visible;zIndex:21;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191355903.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_E1D398D19CE8A2FF"
+            
+            id="element_layout_E6869E33FA3367C2" width="8" height="9.33" left="1" top="120.47"  style="overflow:visible;zIndex:18;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191080248.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_B520FBC513E2D3A4"
+            
+            id="element_layout_C19C8F7A5A859B82" width="7" height="7" left="1" top="131.37"  style="overflow:visible;zIndex:16;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191355903.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_6926397889F65589"
+            
+            id="element_layout_D88365A374B21DDE" width="4" height="4" left="15.41" top="104"  style="overflow:visible;zIndex:13;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191519187.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_BE1599FAB77EFC96"
+            
+            id="element_layout_592C884AA1726B53" width="4" height="4" left="75.34" top="104"  style="overflow:visible;zIndex:10;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191623743.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_image_3920F40BF0E86FD0"
+            
+            id="element_layout_4B44D48409D37857" width="5" height="5" left="94.5" top="103.8"  style="overflow:visible;zIndex:7;"><image src="http://cdn-cloudprint.cainiao.com/waybill-print/cloudprint-imgs/1474191637775.png"  allowFailure="false" />
+		</layout><layout 
+            editor:_for_="element_text_B3A52D78379DB84B"
+            
+            id="element_layout_FBE3EDA35582F047" width="17.5" height="4.5" left="1.5" top="89.35"  style="overflow:visible;zIndex:32;">
+            <text editor:_printName_="日期" 
+                style="fontFamily:simhei;">
+                <![CDATA[<%=_context.formatStartTime('yyyy/MM/dd')%>]]>
+            </text>
+        
+		</layout><layout 
+            
+            ref="CUSTOM_AREA"
+            id="element_layout_CBD1AEE6FA74C93E" width="100" height="40" left="1" top="140"  style="overflow:hidden;">
+		</layout><layout 
+            editor:_for_="element_text_9F41AE2F911CB4E3"
+            
+            id="element_layout_F541A2BF47B0C8C8" width="11" height="5" left="87" top="174"  style="overflow:visible;zIndex:41;">
+        
+		</layout><line
+                    style="lineType:solid;lineColor:#000;"
+                    startX="80.00" 
+                    startY="89" 
+                    endX="80"
+                    endY="108"
+                    editor:_deg_="90">
+                </line>
+                <layout 
+            editor:_for_="element_qrcode_1472627448349"
+            
+            id="element_layout_A81E2E88D84F437E" width="15.35" height="15.35" left="81" top="90"  style="overflow:visible;zIndex:46;"><barcode type="qrcode" ratioMode="keepRatio"     style="opacity:1;"  ><![CDATA[<%=datoubi%>-<%=_data.waybillCode%>]]></barcode>
+		</layout><layout 
+            editor:_for_="element_qrcode_1470126132989"
+            
+            id="element_layout_B16185B174051520" width="15" height="15" left="81" top="121"  style="overflow:visible;zIndex:41;"><barcode type="qrcode" ratioMode="keepRatio"     style="opacity:1;"  ><![CDATA[<%=datoubi%>-<%=_data.waybillCode%>]]></barcode>
+		</layout><% 
+		var chengnuodaWatermark;
+ 		 
+		 if (_data.extroInfo && _data.extroInfo.O2O && _data.extroInfo.O2O.watermark) {
+			chengnuodaWatermark = _data.extroInfo.O2O.watermark;
+		 } else if(_data.shippingOption.services){
+		   if(_data.shippingOption.services["SVC-PROMISE-DELIVERY"]){
+			   var chengnuoda = _data.shippingOption.services["SVC-PROMISE-DELIVERY"]["promise-type"];
+			   if(chengnuoda == 'SAMEDAY_DELIVERY' || chengnuoda == 'NEXTDAY_DELIVERY' || chengnuoda == 'THREEDAYS_DELIVERY' || chengnuoda== 'FOURDAYS_DELIVERY' ||  chengnuoda== 'FIVEDAYS_DELIVERY' ||  chengnuoda== 'SIXDAYS_DELIVERY' ||  chengnuoda== 'SEVENDAYS_DELIVERY'){
+				chengnuodaWatermark = "橙诺达";
+				}
+			 }
+		 }
+		 
+		 if (chengnuodaWatermark) {
+		 %>
+<layout 
+            editor:_for_="element_text_80D86B0F290171E7"
+            
+            id="element_layout_DB205D5E9C8E3281" width="58.53" height="14.95" left="21" top="89.35"  style="overflow:visible;zIndex:47;">
+            <text  
+                style="fontFamily:simhei;fontSize:40;align:center;valign:middle;alpha:0.7;">
+                <![CDATA[<%=chengnuodaWatermark%>]]>
+            </text>
+        
+		</layout><%}%>
+<%
+          var secondRouteCode;
+          
+          if (route_code) {
+            var fixRouteCode = route_code.split(/-| /);
+            
+            if (fixRouteCode.length >= 2) {
+          	secondRouteCode=fixRouteCode[1].substr(-3);
+            }
+          }
+          
+          if (secondRouteCode){
+          %>
+<layout 
+            editor:_for_="element_text_491F1481F4B3498D"
+            
+            id="element_layout_B026B589B5FDC7AE" width="80" height="25" left="10" top="41"  style="overflow:visible;zIndex:50;">
+            <text editor:_printName_="二段码水印" 
+                style="fontFamily:Arial;fontWeight:bold;fontSize:75;letterSpacing:5;lineHeight:0;align:center;valign:middle;alpha:0.65;">
+                <![CDATA[<%=secondRouteCode%>]]>
+            </text>
+        
+		</layout><%}%>
+<%			
+			String.format = function(src) {
+				if (arguments.length == 0) return null;
+				var args = Array.prototype.slice.call(arguments, 1);
+				return src.replace(/\{(\d+)\}/g, function(m, i){return args[i];});
+			};
+			
+			var Service = function(key, hasValue, format, textFormat, offset) {
+				this.key = key;
+				this.hasValue = hasValue;
+				this.format = format;
+				this.textFormat = textFormat
+				this.offset = offset;
+			}
+			
+			var Services = function () {
+				this.init();
+			};
+			
+			Services.prototype.init = function () {
+				// 标准快递
+				this.standserviceFormat = '<layout width="14" height="14" left="51" top="1"  style="overflow:visible;zIndex:31;borderWidth:0 0 0 1">\
+						<text style="fontFamily:simhei;fontWeight:bold;fontSize:15;align:center;valign:bottom">\
+							<![CDATA[标准快递]]>\
+						</text>\
+					</layout>';
+				// 代收货款
+				this.codServiceTextFormat = '代收货款：{0}';
+				this.codServiceFormat = '<layout width="15" height="14" left="{0}" top="1"  style="overflow:visible;zIndex:31;borderWidth:0 0 0 1">\
+						<layout width="15" height="9" left="0" top="0"  style="overflow:visible;zIndex:31;">\
+							<text style="fontFamily:simhei;fontWeight:bold;fontSize:19;{1}align:center;valign:bottom">\
+								<![CDATA[COD]]>\
+							</text>\
+						</layout>\
+						<layout width="15" height="5" left="0" top="9"  style="overflow:visible;zIndex:31;">\
+							<text style="fontFamily:simhei;fontWeight:bold;fontSize:10;{1};align:center;valign:top">\
+								<![CDATA[代收货款]]>\
+							</text>\
+						</layout>\
+					</layout>';
+				// 服务相关文本
+				this.serviceTextFormat = '<layout width="26" height="14" left="{0}" top="1"  style="overflow:visible;zIndex:31;borderWidth:0 0 0 1">\
+						<layout width="25" height="14" left="1" top="0">\
+							<text style="fontFamily:simhei;fontWeight:bold;fontSize:{1};align:left;valign:middle">\
+								<![CDATA[{2}]]>\
+							</text>\
+						</layout>\
+					</layout>';
+				this.servicePickupFormat = '<layout width="13" height="14" left="{0}" top="1"  style="overflow:visible;zIndex:31;borderWidth:0 0 0 1">\
+						<layout width="13" height="8" left="0" top="0"  style="overflow:visible;zIndex:31;">\
+							<text style="fontFamily:simhei;fontWeight:bold;fontSize:11;align:center;valign:middle;">\
+								<![CDATA[{1}]]>\
+							</text>\
+						</layout>\
+						<layout width="13" height="6" left="0" top="8"  style="overflow:visible;zIndex:31;">\
+							<text style="fontFamily:simhei;fontWeight:bold;fontSize:10;align:center;valign:top">\
+								<![CDATA[揽件码]]>\
+							</text>\
+						</layout>\
+					</layout>';
+				this.codService = new Service("SVC-COD", true, this.codServiceFormat, this.codServiceTextFormat, 15);
+				this.serviceArray = new Array(this.codService);
+				this.content = "";
+				this.parse();
+			}
+			
+			Services.prototype.parse = function () {
+				var services = ((_data || {}).shippingOption ||{}||{}).services||"";
+				if (services) {
+					var maxLeft = 65;
+					var serviceTextFormatValue = "";
+					var textLineCount = 0;
+					var serviceCount = 0;
+					var textExtend = "backgroundColor:#000;fontColor:#fff;";
+					for(var index = 0, service;service=this.serviceArray[index++];) {
+						if (services[service.key] && (!service.hasValue || services[service.key]["value"])) {
+							maxLeft -= service.offset;
+							service.format = String.format(service.format, maxLeft, textExtend);
+							textExtend = "";
+							// 设置显示数据
+							if (service.hasValue) {
+								var serviceValue = services[service.key]["value"];
+								if (serviceTextFormatValue.length > 0) {
+									serviceTextFormatValue += "\r\n";
+								}
+								textLineCount++;
+								service.textFormat = String.format(service.textFormat, serviceValue);
+								serviceTextFormatValue += service.textFormat;
+							}
+							// 添加服务区域内容
+							this.content += service.format;
+							serviceCount++;
+						}
+					}
+					
+					if (0 == serviceCount) {
+                      	maxLeft -= 14;
+						this.content=this.standserviceFormat;
+					} else {
+						if (serviceTextFormatValue.length > 0) {
+							var fontSizeArray = new Array(13, 8, 8);
+							maxLeft -= 26;
+							this.serviceTextFormat = String.format(this.serviceTextFormat, 
+								maxLeft,// 服务文本区域大小
+								fontSizeArray[textLineCount - 1], 
+								serviceTextFormatValue);
+							this.content += this.serviceTextFormat;
+						}
+					}
+                  // 揽件码
+						if (_data.pickupCode) {
+							maxLeft -= 13;
+							this.servicePickupFormat = String.format(this.servicePickupFormat, maxLeft, _data.pickupCode);
+							this.content += this.servicePickupFormat;
+						}
+				}
+			}
+			var services = new Services();
+		%>
+<layout 
+            
+            
+            id="1516954619218360" width="65" height="15" left="34" top="0"  style="overflow:visible;zIndex:100;"><%=services.content%>
+
+		</layout>
+		</layout>
+</page>
